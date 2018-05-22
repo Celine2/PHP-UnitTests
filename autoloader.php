@@ -25,10 +25,9 @@ class AutoLoader
         $fullPath =
             $prefix .
             DIRECTORY_SEPARATOR .
-            strtolower(str_replace('\\', '/', $class)) . '.class.php';
+            strtolower(str_replace('\\', DIRECTORY_SEPARATOR, $class)) . '.class.php';
         if (file_exists($fullPath)) {
             include "$fullPath";
-            $found = true;
         } else {
             die("Class $class not found in $fullPath" . PHP_EOL);
         }
